@@ -3,7 +3,7 @@
 <div>
     <% @posts.each do |p|%>
     <div><%= p.body %></div>
-    <div><%= link_to 'See post', post_path(p.id)%>
+    <div><%= link_to 'See post', user_post_path(p.author.id,p.id)%>
 
     <div><%= p.author.name %></div>
     <div><%= link_to 'See user', user_path(p.author.id)%>
