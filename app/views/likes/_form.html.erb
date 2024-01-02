@@ -1,0 +1,5 @@
+<%= form_with model: [@post,@post.likes.build] do |f|%>
+    <%= f.hidden_field :liked_post_id, value: "#{@post.id}"%>
+    <%= f.hidden_field :liking_user_id, value: "#{current_user.id}"%>
+    <%= f.submit "Like post"%>
+<% end %>
