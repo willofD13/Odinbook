@@ -1,0 +1,5 @@
+<%= form_with model: [@user,@user.received_follows.build] do |f|%>
+    <%= f.hidden_field :follower_id, value: "#{current_user.id}"%>
+    <%= f.hidden_field :followed_user_id, value: "#{@user.id}"%>
+    <%= f.submit "Follow user"%>
+<% end %>
