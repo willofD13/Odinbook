@@ -1,0 +1,8 @@
+<h1> Posts </h1>
+
+<div>
+    <% @posts.each do |p|%>
+    <div><%= p.body %></div>
+    <div><%= p.author.name %></div><br>
+    <% end %>
+</div>
