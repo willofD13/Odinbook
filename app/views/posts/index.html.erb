@@ -1,7 +1,6 @@
 <h1> Posts </h1>
 
 <div>
-    
     <% @posts.each do |p|%>
     <ul>
     <li><%= p.body %></li>
@@ -16,6 +15,11 @@
     <% end %>
 </div>
 
-<%= %>
+<h3> Users you follow: </h3>
+<% current_user.given_follows.each do |f|  %>
+    <ul>
+    <li><%= f.followed_user.name %></li>
+    </ul>
+<% end %>
 <%= link_to 'Create post', new_post_path %>
 <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
