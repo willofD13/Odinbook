@@ -1,5 +1,8 @@
 <h2> Post </h2>
 <%= @post.body %>
+<h2> Author </h2>
+<%= @post.author.name %>
+<div><%= link_to 'See user', user_path(@post.author.id)%></div>
 <h2> Comments </h2>
 <div><%= render @post.comments%></div>
 <%= render "likes/form" %>
