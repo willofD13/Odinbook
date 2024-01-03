@@ -1,8 +1,17 @@
 <h1> Users </h1>
 <% @users.each do |u| %>
     <% if u != current_user %>
-        <ul>
-        <li><%= u.name %></li>
-        </ul>
+        <% current_user.given_follows.each do |f|%>
+            <% if u.id != f.followed_user_id%>
+                <ul>
+                <li><%= u.name %></li>
+                <%= render "follows/form", user: u %>
+                </ul>
+            <% else %>
+                <ul>
+                <li><%= u.name %></li>
+                </ul>
+            <% end %>
+        <% end %>
     <% end %>
 <% end %>
