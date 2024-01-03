@@ -14,8 +14,8 @@ class PostsController < ApplicationController
     end
 
     def create
-        @user = User.find(params[:id])
-        @post = @user.posts.build(post_params)
+        @user = User.find(params[:post][:author_id])
+        @post = @user.authored_posts.build(post_params)
 
         if @post.save
             redirect_to :root, status: :see_other
