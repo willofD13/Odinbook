@@ -6,11 +6,15 @@
     <ul>
     <li><%= p.body %></li>
     <div><%= link_to 'See post', user_post_path(p.author.id,p.id)%></div>
+    <% if current_user.id == p.author.id %>
+        <div><%= link_to 'Edit post', edit_user_post_path(p.author.id,p.id) %>
+    <% end %>
     <div><%= p.author.name %></div>
     <div><%= link_to 'See user', user_path(p.author.id)%></div><br>
     </ul>
     <% end %>
 </div>
 
+<%= %>
 <%= link_to 'Create post', new_post_path %>
 <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
