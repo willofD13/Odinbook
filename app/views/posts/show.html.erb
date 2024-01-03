@@ -5,5 +5,7 @@
 <div><%= link_to 'See user', user_path(@post.author.id)%></div>
 <h2> Comments </h2>
 <div><%= render @post.comments%></div>
+<h2> Users who liked this post: </h2>
+<div><%= render @post.likes%></div>
 <%= render "likes/form" %>
 <%= render "comments/form" %>
