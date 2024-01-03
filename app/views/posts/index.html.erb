@@ -8,6 +8,9 @@
     <div><%= link_to 'See post', user_post_path(p.author.id,p.id)%></div>
     <% if current_user.id == p.author.id %>
         <div><%= link_to 'Edit post', edit_user_post_path(p.author.id,p.id) %>
+        <div><%= link_to 'Delete post', user_post_path(p.author.id,p.id), data: { turbo_method: :delete
+                                                                                  turbo_confirm: "Are you sure?"
+                                                                                 } %>
     <% end %>
     <div><%= p.author.name %></div>
     <div><%= link_to 'See user', user_path(p.author.id)%></div><br>
