@@ -1,0 +1,7 @@
+<%= form_with model: @post do |f| %>
+    <div><%= f.label :body %></div><br>
+    <div><%= f.text_area :body %></div>
+    <%= f.hidden_field :author_id, value: "#{current_user.id}"%>
+    <%= f.submit %>
+<% end %>
+    
