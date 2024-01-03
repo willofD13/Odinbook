@@ -21,5 +21,6 @@
     <li><%= f.followed_user.name %></li>
     </ul>
 <% end %>
-<%= link_to 'Create post', new_post_path %>
+<%= link_to 'Create post', new_post_path %><br>
+<%= link_to 'See users', users_path %>
 <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
