@@ -1,2 +1,6 @@
+<h2> Post </h2>
 <%= @post.body %>
+<h2> Comments </h2>
+<div><%= render @post.comments%></div>
 <%= render "likes/form" %>
+<%= render "comments/form" %>
