@@ -1,0 +1,6 @@
+<% @comments.each do |c|%>
+    <p>
+    <div><%= "#{c.user.name}:" %></div>
+    <div><%= c.body %></div>
+    </p>
+<% end %>
