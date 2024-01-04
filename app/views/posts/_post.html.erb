@@ -1,6 +1,6 @@
 <div>
     <ul>
-    <li><strong><%= post.body %></strong></li>
+    <li><h3><strong><%= post.body %></h3></strong></li>
     </ul>
     <div><%= link_to 'See post', user_post_path(post.author.id,post.id)%></div><br>
     <%= turbo_frame_tag 'comments' do%>
