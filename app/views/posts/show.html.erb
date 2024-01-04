@@ -10,8 +10,14 @@
 <%= render "likes/form" %>
 <%= render "comments/form" %>
 
-<%= turbo_frame_tag @post do %>
-    <div><%= link_to 'Edit post', edit_user_post_path(@post.author.id,@post.id) %>
+<% if @post.author.id == current_user.id %>
+    <%= turbo_frame_tag @post do %>
+        <div><%= link_to 'Edit post', edit_user_post_path(@post.author.id,@post.id) %>
+    <% end %>
+    <div><%= link_to 'Delete post', user_post_path(@post.author.id,@post.id), data: { turbo_method: :delete,
+                                                                                    turbo_confirm: "Are you sure?"
+                                                                                    } %></div>
 <% end %>
+
 
 <div><%= link_to 'Home',root_path %></div>
