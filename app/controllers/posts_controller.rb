@@ -17,11 +17,13 @@ class PostsController < ApplicationController
         @user = User.find(params[:post][:author_id])
         @post = @user.authored_posts.build(post_params)
 
-        if @post.save
-            redirect_to :root, status: :see_other
-        else
-            render :new, status: :unprocessable_entity
-        end
+        respond_to do |format|
+            if @post.save
+                format.turbo_stream
+            else
+                format.html {render :new, status: :unprocessable_entity}
+            end
+        end 
     end
 
     def edit
