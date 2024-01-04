@@ -7,7 +7,14 @@ class CommentsController < ApplicationController
     def create
         @post = Post.find(params[:post_id])
         @comment = @post.comments.create(comment_params)
-        redirect_to :root, status: :see_other
+        
+        respond_to do |format|
+            if @comment.save
+                format.turbo_stream
+            else
+                format.html { render 'form' , status: :unprocessable_entity }
+            end
+        end
     end
 
     def destroy
