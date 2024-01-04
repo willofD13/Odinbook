@@ -6,4 +6,5 @@
         <div><%= c.body %></div>
         </p>
     <% end %>
+    <%= link_to "Hide comments", posts_path , data: { turbo_frame: "_top" } %>
 <% end %>
