@@ -13,9 +13,9 @@
                                                                                  } %></div>
     <% end %>
     
-
-    <strong> Comments </strong>
-    <div><%=link_to 'See comments', post_comments_path(p.id)%></div>
+    <%= turbo_frame_tag 'comments' do%>
+        <div><%=link_to 'See comments', post_comments_path(p.id)%></div>
+    <% end %>
     </ul>
     <% end %>
 </div>

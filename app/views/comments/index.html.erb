@@ -1,6 +1,9 @@
-<% @comments.each do |c|%>
-    <p>
-    <div><%= "#{c.user.name}:" %></div>
-    <div><%= c.body %></div>
-    </p>
+<%= turbo_frame_tag 'comments' do%>
+    <strong> Comments </strong>
+    <% @comments.each do |c|%>
+        <p>
+        <div><%= "#{c.user.name}:" %></div>
+        <div><%= c.body %></div>
+        </p>
+    <% end %>
 <% end %>
