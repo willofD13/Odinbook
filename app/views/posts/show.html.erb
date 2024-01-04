@@ -1,8 +1,8 @@
 <h2> Post </h2>
 <%= @post.body %>
-<h2> Author </h2>
-<%= @post.author.name %>
-<div><%= link_to 'See user', user_path(@post.author.id)%></div>
+<%= turbo_frame_tag 'author', src: user_path(@post.author.id) do %>
+    <div></div>
+<% end %>
 <h2> Comments </h2>
 <div><%= render @post.comments%></div>
 <h2> Users who liked this post: </h2>
