@@ -15,7 +15,7 @@
     
 
     <strong> Comments </strong>
-    <div><%= render p.comments%></div>
+    <div><%=link_to 'See comments', post_comments_path(p.id)%></div>
     </ul>
     <% end %>
 </div>
