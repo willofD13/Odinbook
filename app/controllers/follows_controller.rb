@@ -9,7 +9,7 @@ class FollowsController < ApplicationController
         @follow = @user.received_follows.build(follow_params)
 
         if @follow.save
-            redirect_to :root, status: :see_other
+            redirect_to user_path(@user.id), status: :see_other
         else
             render :new, status: :unprocessable_entity
         end
