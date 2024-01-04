@@ -3,14 +3,15 @@
 <div>
     <% @posts.each do |p|%>
     <ul>
-    <li><%= p.body %></li>
-    <div><%= link_to 'See post', user_post_path(p.author.id,p.id)%></div>
+    <li><h3><%= p.body %></h3></li>
+    <div><%= link_to 'See post', user_post_path(p.author.id,p.id)%></div><br>
     <% if current_user.id == p.author.id %>
         <div><%= link_to 'Edit post', edit_user_post_path(p.author.id,p.id) %>
         <div><%= link_to 'Delete post', user_post_path(p.author.id,p.id), data: { turbo_method: :delete,
                                                                                   turbo_confirm: "Are you sure?"
                                                                                  } %>
     <% end %>
+    <strong> Comments </strong>
     <div><%= render p.comments%></div>
     </ul>
     <% end %>
