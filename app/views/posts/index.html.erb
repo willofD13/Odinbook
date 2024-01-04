@@ -1,19 +1,10 @@
 <h1> Posts </h1>
 
-
-
-<div>
-    <% @posts.each do |p|%>
-    <ul>
-    <li><h3><%= p.body %></h3></li>
-    <div><%= link_to 'See post', user_post_path(p.author.id,p.id)%></div><br>
-    
-    <%= turbo_frame_tag 'comments' do%>
-        <div><%=link_to 'See comments', post_comments_path(p.id)%></div>
-    <% end %>
-    </ul>
-    <% end %>
+<%= turbo_frame_tag id="new_post", src:new_post_path %>
+<div id="posts">
+  <%= render @posts %>
 </div>
+
 
 
 
@@ -24,7 +15,5 @@
     </ul>
 <% end %>
 
-
-<%= link_to 'Create post', new_post_path %><br>
 <%= link_to 'See users', users_path %>
 <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
