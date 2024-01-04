@@ -1,21 +1,26 @@
 <h1> Posts </h1>
 
+
+
 <div>
     <% @posts.each do |p|%>
     <ul>
     <li><h3><%= p.body %></h3></li>
     <div><%= link_to 'See post', user_post_path(p.author.id,p.id)%></div><br>
     <% if current_user.id == p.author.id %>
-        <div><%= link_to 'Edit post', edit_user_post_path(p.author.id,p.id) %>
         <div><%= link_to 'Delete post', user_post_path(p.author.id,p.id), data: { turbo_method: :delete,
                                                                                   turbo_confirm: "Are you sure?"
-                                                                                 } %>
+                                                                                 } %></div>
     <% end %>
+    
+
     <strong> Comments </strong>
     <div><%= render p.comments%></div>
     </ul>
     <% end %>
 </div>
+
+
 
 <h3> Users you follow: </h3>
 <% current_user.given_follows.each do |f|  %>
@@ -23,6 +28,8 @@
     <li><%= f.followed_user.name %></li>
     </ul>
 <% end %>
+
+
 <%= link_to 'Create post', new_post_path %><br>
 <%= link_to 'See users', users_path %>
 <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
