@@ -33,7 +33,7 @@ class PostsController < ApplicationController
         @post.update(post_params)
 
         if @post.save
-            redirect_to :root, status: :see_other
+            redirect_to edit_user_post_path(@post.author.id,@post.id), status: :see_other
         else 
             render :edit, status: :unprocessable_entity
         end
