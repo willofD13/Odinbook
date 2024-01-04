@@ -1,5 +1,5 @@
 <%= turbo_frame_tag @post do %>
     <h1> Edit post </h1>
     <%= render "form", post: @post %>
-    <%= link_to "Return to Article", @post, data: { turbo_frame: "_top" } %>
+    <%= link_to "Return to post", @post, data: { turbo_frame: "_top" } %>
 <% end %>
