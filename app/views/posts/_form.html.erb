@@ -1,9 +1,7 @@
-<%= form_with model: post do |f| %>
-    <div><%= f.label :body %></div><br>
+<form action="/posts" method="post" >
     <div data-controller='hello'>
-        <%= f.text_area :body %>
+    <input id='post[body]' name='post[body]' type='textarea' data-hello-target='post' />
+    <input id='post[author_id]' name='post[author_id]' type='hidden' value="<%= current_user.id %>" />
+    <input type='submit' value='Create post' data-action="hello#clear"/>
     </div>
-    <%= f.hidden_field :author_id, value: "#{current_user.id}"%>
-    <%= f.submit %>
-<% end %>
-    
+</form>
