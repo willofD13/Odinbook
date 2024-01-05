@@ -1,7 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ["post"]
   connect() {
-    this.element.textContent = "Hello World!"
+  }
+
+  clear() {
+    this.postTarget.reset()
   }
 }
