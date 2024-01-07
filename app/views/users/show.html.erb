@@ -1,6 +1,10 @@
+<% if @user.avatar.attached? %>
+    <%= image_tag(@user.avatar, style: "height: 50px;") %>
+<% end %>
 <%= turbo_frame_tag 'author' do %>
     <h2> Author </h2>
     <%= @user.name %>
+    <%= @user.email %>
     <% a =[] %>
     <% current_user.given_follows.each do |f|  %>
         <% a << f.followed_user_id %></li>
