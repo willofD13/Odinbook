@@ -1,9 +1,9 @@
 <%= turbo_frame_tag id="new_post", src:new_post_path %>
 <div id="posts">
   <%= render @posts %>
-</div>
+</div><br>
 
-
+<%= link_to 'My profile', user_path(current_user.id) %>
 
 
 <h3> Users you follow: </h3>
