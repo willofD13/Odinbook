@@ -8,6 +8,8 @@ class User < ApplicationRecord
     validates :name,presence: true, uniqueness: true 
     validates :email, presence: true , uniqueness: true
 
+    has_one_attached :avatar
+
     has_many :comments, dependent: :destroy
     
     has_many :received_follows, foreign_key: :followed_user_id, class_name: "Follow", dependent: :destroy
