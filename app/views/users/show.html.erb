@@ -9,6 +9,7 @@
         <% a << f.followed_user_id %></li>
     <% end %>
     <% if !a.include?(@user.id) && @user != current_user%>
+    <%# do not display follow button when a user views his/her own profile%>
         <ul>
         <%= render "follows/form", user: @user %>
         </ul>
