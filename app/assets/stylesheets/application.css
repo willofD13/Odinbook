@@ -15,8 +15,7 @@
  *= require users.css
  */
  body {
-    margin-top: 0;
-    margin-left: 0;
+    margin: 0;
  }
 
  header {
