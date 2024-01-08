@@ -1,5 +1,8 @@
 <% if @user.avatar.attached? %>
-    <%= image_tag(@user.avatar, style: "height: 50px;") %>
+    <%= image_tag(@user.avatar, style: "display: inline-block;
+                                        width:  200px;
+                                        height: 200px;
+                                        border-radius:50%;") %>
 <% end %>
 <%= turbo_frame_tag 'author' do %>
     <h2><%= @user.name %></h2>
