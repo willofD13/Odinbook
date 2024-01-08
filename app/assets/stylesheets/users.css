@@ -1,0 +1,15 @@
+.user {
+    display: flex;
+}
+
+.image {
+    display: inline-block;
+    margin-right: 50px;
+    width:  200px;
+    height: 200px;
+    border-radius:50%;
+}
+
+.link {
+    margin-left: 60px;
+}
