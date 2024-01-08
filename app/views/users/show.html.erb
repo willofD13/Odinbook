@@ -1,12 +1,16 @@
+<div class='user' style='display: flex;'>
 <% if @user.avatar.attached? %>
     <%= image_tag(@user.avatar, style: "display: inline-block;
+                                        margin-right: 50px;
                                         width:  200px;
                                         height: 200px;
                                         border-radius:50%;") %>
 <% end %>
 <%= turbo_frame_tag 'author' do %>
-    <h2><%= @user.name %></h2>
-    <h2><%= @user.email %></h2>
+    <div class='attributes'>
+        <h2><%= @user.name %></h2>
+        <h2><%= @user.email %></h2>
+    </div>
     <% a =[] %>
     <% current_user.given_follows.each do |f|  %>
         <% a << f.followed_user_id %></li>
@@ -18,3 +22,4 @@
         </ul>
     <% end %>
 <% end %>
+</div>
