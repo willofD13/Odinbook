@@ -1,18 +1,25 @@
-<%= turbo_frame_tag id="new_post", src:new_post_path %>
-<div id="posts">
-  <%= render @posts %>
-</div><br>
+<div class='index'>
+  <div class='new_post'>
+    <%= turbo_frame_tag id="new_post", src:new_post_path %>
+  </div>
 
-<%= link_to 'My profile', user_path(current_user.id) %>
+  <div id="posts">
+    <%= render @posts %>
+  </div><br>
 
+  <div class='follows'>
+    <h3> Users you follow: </h3>
+    <% current_user.given_follows.each do |f|  %>
+        <ul>
+        <li><%= f.followed_user.name %></li>
+        </ul>
+    <% end %>
+  </div>
 
-<h3> Users you follow: </h3>
-<% current_user.given_follows.each do |f|  %>
-    <ul>
-    <li><%= f.followed_user.name %></li>
-    </ul>
-<% end %>
-
-<%= link_to 'See users', users_path %>
-<%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
-<%= link_to 'Edit account', edit_user_registration_path %>
+  <div class='links'>
+    <%= link_to 'My profile', user_path(current_user.id) %>
+    <%= link_to 'See users', users_path %>
+    <%= button_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <%= link_to 'Edit account', edit_user_registration_path %>
+  </div>
+</div>
