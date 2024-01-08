@@ -3,3 +3,13 @@
     flex-direction: row;
     justify-content: space-around;
 }
+
+.posts {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 100px;
+}
+
+.list_item {
+    padding: 10px;
+}
