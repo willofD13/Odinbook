@@ -1,7 +1,7 @@
 <form action="/posts" method="post" >
     <div data-controller='hello'>
     <textarea id='post[body]' name='post[body]' type='text_area' data-hello-target='post'></textarea>
-    <input id='post[author_id]' name='post[author_id]' type='hidden' value="<%= current_user.id %>" />
+    <input id='post[author_id]' name='post[author_id]' type='hidden' value="<%= current_user.id %>" /><br>
     <input type='submit' value='Create post' data-action="hello#clear"/>
     </div>
 </form>
