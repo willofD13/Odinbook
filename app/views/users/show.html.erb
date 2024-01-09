@@ -1,27 +1,30 @@
 <div class='user' >
-<% if @user.avatar.attached? %>
-    <%= image_tag(@user.avatar, class: 'image' ) %>
-<% end %>
-<%= turbo_frame_tag 'author' do %>
-    <div class='attributes'>
-        <h2><%= @user.name %></h2>
-        <h2><%= @user.email %></h2>
-        <h2> Posts: </h2>
-        <% @user.authored_posts.each do |p|%>
+        <% if @user.avatar.attached? %>
+            <%= image_tag(@user.avatar, class: 'image' ) %>
+            <%= render 'edit'%>
+        <% else %>
+            <%= render 'edit'%>
+        <% end %>
+    <%= turbo_frame_tag 'author' do %>
+        <div class='attributes'>
+            <h2><%= @user.name %></h2>
+            <h2><%= @user.email %></h2>
+            <h2> Posts: </h2>
+            <% @user.authored_posts.each do |p|%>
+                <ul>
+                <li><%= p.body %></li>
+                </ul>
+            <% end %>
+        </div>
+        <% a =[] %>
+        <% current_user.given_follows.each do |f|  %>
+            <% a << f.followed_user_id %></li>
+        <% end %>
+        <% if !a.include?(@user.id) && @user != current_user%>
+        <%# do not display follow button when a user views his/her own profile%>
             <ul>
-            <li><%= p.body %></li>
+            <%= render "follows/form", user: @user %>
             </ul>
         <% end %>
-    </div>
-    <% a =[] %>
-    <% current_user.given_follows.each do |f|  %>
-        <% a << f.followed_user_id %></li>
     <% end %>
-    <% if !a.include?(@user.id) && @user != current_user%>
-    <%# do not display follow button when a user views his/her own profile%>
-        <ul>
-        <%= render "follows/form", user: @user %>
-        </ul>
-    <% end %>
-<% end %>
 </div><br>
