@@ -1,7 +1,5 @@
-<div class='avatar'>
     <%= form_with model: @user do |f|%>
         <div><%= f.label :avatar, 'Add avatar' %></div><br>
         <div><%= f.file_field :avatar %></div><br>
         <div><%= f.submit 'Submit'%></div><br>
     <% end %>
-</div>
