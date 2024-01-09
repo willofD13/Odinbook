@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
 
     private
-    #allow an omniauth user to add an avatar
+    #allow user to add an avatar
     def user_params
         params.require(:user).permit(:avatar)
     end
