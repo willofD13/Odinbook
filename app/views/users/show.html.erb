@@ -6,6 +6,12 @@
     <div class='attributes'>
         <h2><%= @user.name %></h2>
         <h2><%= @user.email %></h2>
+        <h2> Posts: </h2>
+        <% @user.authored_posts.each do |p|%>
+            <ul>
+            <li><%= p.body %></li>
+            </ul>
+        <% end %>
     </div>
     <% a =[] %>
     <% current_user.given_follows.each do |f|  %>
