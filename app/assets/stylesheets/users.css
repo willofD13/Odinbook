@@ -13,3 +13,8 @@
 .link {
     margin-left: 60px;
 }
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+}
