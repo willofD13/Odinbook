@@ -10,6 +10,7 @@ class OdinbookFlowTest < ActionDispatch::IntegrationTest
 
     get '/'
 
+    assert_response :success
     assert_select 'h3', 'Users you follow:'
   end
 
