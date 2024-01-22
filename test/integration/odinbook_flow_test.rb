@@ -38,4 +38,14 @@ class OdinbookFlowTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select "h2", "#{user.name}"
   end
+
+  test 'visiting users page' do 
+    user = users(:one) 
+    sign_in user 
+
+    get users_path
+
+    assert_response :success
+    assert_select "h1", "Users"
+  end
 end
