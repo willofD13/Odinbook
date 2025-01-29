@@ -74,3 +74,9 @@ end
 gem "devise", "~> 4.9"
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "pry-byebug", "~> 3.10"
+
+gem "tailwindcss-ruby", "~> 4.0"
+
+gem "tailwindcss-rails", "~> 3.3"
