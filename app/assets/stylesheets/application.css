@@ -22,30 +22,3 @@
     padding: 20px;
     background-color: gray;
  }
-
- .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
- }
-
-
- nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
- }
-
- nav li {
-    display: inline-block;
-    margin-left: 70px;
-    padding-top: 35px;
- }
-
- nav a {
-    color: black;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 14px;
- }
